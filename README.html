@@ -1,39 +1,43 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<style>
-	div{
-		width: 300px;
-		height: 600px;
-		background: #000;
-		border-right: 300px solid #fff;
-		border-radius: 50%;
-		box-shadow: 0 0 30px;
-		margin: 50px auto;
-	}
-	div::before,div::after{
-		content: '';
-     	display: block;
-     	width: 100px;
-     	height: 100px;
-     	margin-left: 150px;
-     	border: 100px solid;
-     	border-radius: 50%;
-	}
-     div::before{
-     	background: #fff;
-     	border-color: #000;
-     }
-     div::after{
-     	background: #000;
-     	border-color: #fff;
-     }
-	</style>
 </head>
 <body>
-	<div></div>
+	<input type="text" id="inputa">
+	<select name="" id="select">
+	<option value="+">+</option>
+	<option value="-">-</option>
+	<option value="*">*</option>
+	<option value="/">/</option>
+	</select>
+	<input type="text" id="inputb">
+	<input type="button" id="yunsuan" value="=">
+	<input type="text" id="inputc">
+	<script>
+	var ys=document.getElementById('yunsuan');
+	ys.onclick=function(){
+	var a=parseInt(document.getElementById('inputa').value);
+	var fh=document.getElementById('select').value;
+	var b=parseInt(document.getElementById('inputb').value);
+	var jg;
+    if(fh=='+'){
+    	jg= a+b;
+    }else if(fh=='-'){
+    	jg= a-b;
+    }else if(fh=='*'){
+    	jg= a*b;
+    }else if(fh=='/'&&b!=0){
+    	jg= a/b;
+	}else{
+    	jg='b不能为0';
+    }
+    if(isNaN(a)||isNaN(b)){
+   	jg='错误';
+   }
+    document.getElementById("inputc").value = jg;
+    }
+	</script>
 </body>
 </html>
