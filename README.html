@@ -2,42 +2,108 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>js选项卡</title>
+	<style>
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		#tabs {
+			width: 1000px;
+			border: 1px solid;
+			display: flex;
+			justify-content: space-between;
+		}
+		.tabs_box {
+			width: 500px;
+		}
+		.tabs {
+			display: flex;
+		}
+		.tabs li {
+			padding: 10px;
+			padding-left: 28px;
+			font-size: 18px;
+			background: url('image/icon1.png') no-repeat 10px;
+		}
+		.tabs .cur {
+			color: #046fbb;
+		}
+		.contents div {
+			height: 200px;
+			font-size: 14px;
+			line-height: 1.5;
+			display: none;
+		}
+		.contents .show {
+			display: block;
+		}
+	</style>
 </head>
 <body>
-	<input type="text" id="inputa">
-	<select name="" id="select">
-	<option value="+">+</option>
-	<option value="-">-</option>
-	<option value="*">*</option>
-	<option value="/">/</option>
-	</select>
-	<input type="text" id="inputb">
-	<input type="button" id="yunsuan" value="=">
-	<input type="text" id="inputc">
+	<div id="tabs">
+		<div id="tabs1" class="tabs_box">
+			<ul class="tabs">
+				<li class="cur">学院新闻</li>
+				<li>通知公告</li>
+				<li>学术动态</li>
+			</ul>
+			<div class="contents">
+				<div class="show">学院新闻的内容:</div>
+				<div>通知公告的内容:</div>
+				<div>学术动态的内容:</div>
+			</div>
+		</div>
+		<div id="tabs2" class="tabs_box">
+			<ul class="tabs">
+				<li class="cur">学院新闻</li>
+				<li>通知公告</li>
+				<li>学术动态</li>
+			</ul>
+			<div class="contents">
+				<div class="show">学院新闻的内容:</div>
+				<div>通知公告的内容:</div>
+				<div>学术动态的内容:</div>
+			</div>
+		</div>
+		<div id="tabs3" class="tabs_box">
+			<ul class="tabs">
+				<li class="cur">学院新闻</li>
+				<li>通知公告</li>
+				<li>学术动态</li>
+			</ul>
+			<div class="contents">
+				<div class="show">学院新闻的内容:</div>
+				<div>通知公告的内容:</div>
+				<div>学术动态的内容:</div>
+			</div>
+		</div>
+	</div>
 	<script>
-	var ys=document.getElementById('yunsuan');
-	ys.onclick=function(){
-	var a=parseInt(document.getElementById('inputa').value);
-	var fh=document.getElementById('select').value;
-	var b=parseInt(document.getElementById('inputb').value);
-	var jg;
-    if(fh=='+'){
-    	jg= a+b;
-    }else if(fh=='-'){
-    	jg= a-b;
-    }else if(fh=='*'){
-    	jg= a*b;
-    }else if(fh=='/'&&b!=0){
-    	jg= a/b;
-	}else{
-    	jg='b不能为0';
-    }
-    if(isNaN(a)||isNaN(b)){
-   	jg='错误';
-   }
-    document.getElementById("inputc").value = jg;
-    }
+	function tab(id){
+		var box=document.getElementById(id);
+		var ul=box.getElementsByClassName('tabs')[0];
+		var lis=ul.getElementsByTagName('li');
+		var div=box.getElementsByClassName('contents')[0];
+		var divs=div.getElementsByTagName('div');
+		for(var i=0;i<lis.length;i++){
+			lis[i].index=i; 
+			lis[i].onclick=function(){
+				for(var i=0;i<lis.length;i++){
+					lis[i].removeAttribute('class'); 
+				}
+				for(var i=0;i<divs.length;i++){
+					divs[i].removeAttribute('class');
+				}
+				this.className='cur'; 
+				divs[this.index].className='show';  
+			}
+		}
+	}
+	tab('tabs1');
+	tab('tabs2');
+	tab('tabs3');
 	</script>
 </body>
 </html>
