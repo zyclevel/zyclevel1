@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +28,7 @@
 			left: 0;
 			opacity: 0;
 			z-index: -1;
+			transition: 1s linear;
 		}
 		#carouse101 .imgs .show {
 			opacity: 1;
@@ -82,6 +84,7 @@
 			border: 3px solid #ddd;
 			margin: 0 2px;
 			cursor: pointer;
+			transition:2s linear;
 		}
 		#carouse101 .dots .act {
 			background: lightskyblue;
@@ -211,7 +214,7 @@
 			var n=btns.length; // 图片数量/按钮数量
 			var index=0; // 当前显示的图片序号，0号开始,范围是[0,n-1]
 			var t=null; // 定时器变量/标识符
-			var s=1; // 自动轮播的时间间隔(秒)
+			var s=2; // 自动轮播的时间间隔(秒)
 			// 显示指定index对应的图片
 			function showImg (index) {
 				for(var i=0;i<n;i++){
