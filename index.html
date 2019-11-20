@@ -6,28 +6,29 @@
 	<style>
 	.ctboxs{
 		width: 590px;
-		height: 710px;
+		height: 715px;
 		position: relative;
 		overflow: hidden;
 		border: 5px solid orange;
 	}
 	.ctboxs .ctbox{
 		width: 590px;
-		height: 530px;
-		/*display: flex;*/
+		height: 535px;
 		position: absolute;
 		top: 0;
 		transition: 2s linear;
 	}
 	.ctboxs .ct1{top: 0px}
-	.ctboxs .ct2{top: 530px}
-	.ctboxs .ct3{top: 590px}
-	.ctboxs .ct4{top: 650px}
+	.ctboxs .ct2{top: 535px}
+	.ctboxs .ct3{top: 595px}
+	.ctboxs .ct4{top: 655px}
 	.ctboxs .ctbox .title{
-		font-family: white;
+		font-family: 宋体;
+		color: white;
 		font-size: 22px;
 		line-height: 36px;
-		padding: 19px 120px;
+		padding: 15px 220px;
+		cursor: pointer;
 	}
 	.ctboxs .ct1 .title{
 		background: rgb(0,0,127);
@@ -64,11 +65,11 @@
 		var ctboxs=document.getElementById('ct1');
 		var ctbox=ctboxs.getElementsByClassName('ctbox');
 		var title=ctboxs.getElementsByClassName('title');
-		var contentWidth=470;
+		var contentWidth=475;
 		var titleWidth=60;
 		var n=0
 		for(var i=0;i<=title.length;i++){
-			title[i].idx=i;//把序号保存到自定义的IDX属性中
+			title[i].idx=i;
 			title[i].onclick=function(){
 				n=this.idx;
 				for(var i=0;i<ctbox.length;i++){
